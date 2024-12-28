@@ -28,7 +28,7 @@
             ><img src="./media/reels.png" class="w-8 h-8 inline-block" />
             Reels</a
           >
-          <a class="text-white" href="./index.html"
+          <a class="text-white" href="./comment.html"
             ><img src="./media/message.png" class="w-8 h-8 inline-block" />
             Messages</a
           >
@@ -167,6 +167,45 @@
           <p>© 2024 Instagram from Meta</p>
         </div>
       </div>
+      <!-- Comment code -->
+      <div
+      id="overlay"
+      class="fixed inset-0 bg-black bg-opacity-50 hidden blur-sm"
+    ></div>
+    <div
+      id="commentModal"
+      class="fixed bg-white p-6 rounded-lg shadow-lg z-10 hidden"
+    >
+      <h3 class="text-lg font-semibold mb-4">Add a Comment</h3>
+      <textarea
+        id="commentInput"
+        class="w-full p-2 border rounded mb-4"
+        rows="4"
+        placeholder="Write your comment here..."
+      ></textarea>
+      <div class="flex justify-end space-x-2">
+        <button
+          id="closeModalButton"
+          class="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500"
+        >
+          Cancel
+        </button>
+        <button
+          id="submitCommentButton"
+          class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        >
+          Submit
+        </button>
+      </div>
     </div>
+
+    <!-- Comment Display Section -->
+    
+      <!-- Comments will appear here -->
+    </div>
+  </div>
+      
+    <script>
+    </script>
   </body>
 </html>

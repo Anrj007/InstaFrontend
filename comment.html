@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comment Section</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 min-h-screen flex flex-col items-center p-6">
+    <!-- Add Comment Button -->
+    <button
+      id="addCommentButton"
+      class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+    >
+      Add Comment
+    </button>
+
+    <!-- Comment Modal -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden"></div>
+    <div
+      id="commentModal"
+      class="fixed bg-white p-6 rounded-lg shadow-lg hidden z-10"
+    >
+      <h3 class="text-lg font-semibold mb-4">Add a Comment</h3>
+      <textarea
+        id="commentInput"
+        class="w-full p-2 border rounded mb-4"
+        rows="4"
+        placeholder="Write your comment here..."
+      ></textarea>
+      <div class="flex justify-end space-x-2">
+        <button
+          id="closeModalButton"
+          class="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500"
+        >
+          Cancel
+        </button>
+        <button
+          id="submitCommentButton"
+          class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+
+    <!-- Comment Display Section -->
+    <div id="commentContainer" class="mt-6 w-full max-w-lg space-y-4">
+      <!-- Comments will appear here -->
+    </div>
+
+    <script>
+      // JavaScript to handle comment functionality
+      const addCommentButton = document.getElementById("addCommentButton");
+      const commentModal = document.getElementById("commentModal");
+      const overlay = document.getElementById("overlay");
+      const closeModalButton = document.getElementById("closeModalButton");
+      const submitCommentButton = document.getElementById(
+        "submitCommentButton"
+      );
+      const commentInput = document.getElementById("commentInput");
+      const commentContainer = document.getElementById("commentContainer");
+
+      // Show the modal
+      addCommentButton.addEventListener("click", () => {
+        commentModal.classList.remove("hidden");
+        overlay.classList.remove("hidden");
+        commentInput.value = ""; // Clear the input field
+      });
+
+      // Hide the modal
+      const closeModal = () => {
+        commentModal.classList.add("hidden");
+        overlay.classList.add("hidden");
+      };
+      closeModalButton.addEventListener("click", closeModal);
+      overlay.addEventListener("click", closeModal);
+
+      // Save the comment and display it
+      submitCommentButton.addEventListener("click", () => {
+        const commentText = commentInput.value.trim();
+        if (commentText) {
+          const newComment = document.createElement("div");
+          newComment.classList.add(
+            "bg-gray-100",
+            "p-4",
+            "rounded",
+            "shadow",
+            "border"
+          );
+          newComment.textContent = commentText;
+          commentContainer.appendChild(newComment);
+        }
+        closeModal();
+      });
+    </script>
+  </body>
+</html>

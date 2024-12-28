@@ -38,9 +38,16 @@ async function loadImageLinks(offset = 0, limit = 10) {
       //bottom interaction
       const interaction = document.createElement("div");
       const like = document.createElement("img");
+      const comment = document.createElement("button");
+      comment.id = "addCommentButton";
       const message = document.createElement("img");
       const send = document.createElement("img");
       const context = document.createElement("h1");
+      const commentdisplay = document.createElement("div");
+      commentdisplay.id = link;
+      const commentContainer = document.createElement("div");
+      commentContainer.id = "commentContainer";
+      commentContainer.classList.add("mt-6", "w-full", "max-w-lg", "space-y-4");
       const addc = document.createElement("h2");
       //bottom interaction end
       //classes--
@@ -65,10 +72,41 @@ async function loadImageLinks(offset = 0, limit = 10) {
       like.classList.add("w-10", "h-8", "inline-block");
       like.id = "likeimg";
       like.addEventListener("click", () => {
+        //EVENT to add an like
         console.log("Dynamic button clicked!");
         like.src = "./media/likea.png";
       });
+      //COMMENT START
       message.classList.add("W-8", "h-8", "inline-block");
+      comment.addEventListener("click", () => {
+        console.log(link);
+        let refrence = link;
+        commenting(refrence);
+      });
+      submitCommentButton.addEventListener("click", () => {
+        const commentText = commentInput.value.trim();
+        console.log("comment added!");
+        console.log(commentText);
+        if (commentdisplay.id == link) {
+          console.log("verified!");
+          console.log(link);
+          console.log(commentdisplay.id);
+          const newComment = document.createElement("div");
+          newComment.classList.add(
+            "bg-black",
+            "p-4",
+            "rounded",
+            "shadow",
+            "border"
+          );
+          console.log("comment added!");
+          newComment.textContent = commentText;
+          console.log("comment added123!");
+          commentContainer.appendChild(newComment);
+        }
+        closeModal();
+      });
+      //COMMENT END
       send.classList.add("w-10", "h-8", "inline-block");
       context.classList.add("text-gray-200");
       addc.classList.add("text-gray-400");
@@ -84,9 +122,12 @@ async function loadImageLinks(offset = 0, limit = 10) {
       addc.innerText = "Add a comment..";
       like.src = "./media/like.png";
       message.src = "./media/message.png";
+      comment.id = "addCommentButton";
       send.src = "./media/send.png";
+      commentdisplay.appendChild(comment);
+      comment.appendChild(message);
       interaction.appendChild(like);
-      interaction.appendChild(message);
+      interaction.appendChild(commentdisplay);
       interaction.appendChild(send);
       //bottom append end
       //acc info end
@@ -119,7 +160,8 @@ async function loadImageLinks(offset = 0, limit = 10) {
       post.appendChild(gallery);
       post.appendChild(interaction);
       post.appendChild(context);
-      post.appendChild(addc);
+      commentContainer.appendChild(addc);
+      post.appendChild(commentContainer);
       //FINAL APPEND-- END
     });
   } catch (error) {
@@ -137,3 +179,35 @@ async function loadMoreImages() {
   await loadImageLinks(offset, limit);
 }
 setInterval(loadMoreImages, 10000);
+
+async function commenting(refrence) {
+  // JavaScript to handle comment functionality
+  const addCommentButton = document.getElementById("addCommentButton");
+  const commentModal = document.getElementById("commentModal");
+  const overlay = document.getElementById("overlay");
+  const closeModalButton = document.getElementById("closeModalButton");
+  const submitCommentButton = document.getElementById("submitCommentButton");
+  const commentInput = document.getElementById("commentInput");
+  const commentContainer = document.getElementById("commentContainer");
+  commentModal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+  console.log("Refrence: ", refrence);
+
+  // Show the modal
+  addCommentButton.addEventListener("click", () => {
+    commentModal.classList.remove("hidden");
+    overlay.classList.remove("hidden");
+    commentInput.value = ""; // Clear the input field
+  });
+
+  // Hide the modal
+  const closeModal = () => {
+    commentModal.classList.add("hidden");
+    overlay.classList.add("hidden");
+  };
+  closeModalButton.addEventListener("click", closeModal);
+  overlay.addEventListener("click", closeModal);
+  return refrence;
+
+  // Save the comment and display it
+}
