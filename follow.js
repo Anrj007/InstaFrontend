@@ -18,7 +18,11 @@ function changeHeadingText4() {
 
 function justkidding() {
   tell = document.getElementById("whatsapp");
-  alert("Transfering to Whatsapp :)");
+  const reply = prompt("Transferring to WhatsApp.  okay?(Yes)");
   console.log("just kidding!");
-  window.location.href = "https://web.whatsapp.com/";
+  if (reply) {
+    window.location.href = "https://web.whatsapp.com/";
+  } else {
+    alert("rejecting redirect!");
+  }
 }

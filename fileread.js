@@ -153,7 +153,7 @@ async function loadImageLinks(offset = 0, limit = 5) {
       });
       img.src = link.trim(); // Set the src to the image link
       img.alt = "yourwallpaper";
-      img.classList.add("brightness-100", "z-1", "rounded-2xl");
+      img.classList.add("brightness-100", "z-1", "rounded-md");
 
       //gallery append
       gallery.appendChild(div); // Add the img tag to the gallery
