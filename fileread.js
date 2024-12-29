@@ -22,7 +22,7 @@ async function readTextFile(offset, limit) {
 }
 
 // Function to load image boxes
-async function loadImageLinks(offset = 0, limit = 10) {
+async function loadImageLinks(offset = 0, limit = 5) {
   try {
     const imageLinks = await readTextFile(offset, limit);
 
@@ -103,6 +103,11 @@ async function loadImageLinks(offset = 0, limit = 10) {
           newComment.textContent = commentText;
           console.log("comment added123!");
           commentContainer.appendChild(newComment);
+          closeModal();
+          const commentModal = document.getElementById("commentModal");
+          const overlay = document.getElementById("overlay");
+          commentModal.classList.add("hidden");
+          overlay.classList.add("hidden");
         }
         closeModal();
       });
@@ -112,7 +117,7 @@ async function loadImageLinks(offset = 0, limit = 10) {
       addc.classList.add("text-gray-400");
       //top append
       accpfp.src = "./media/pfp.jpg";
-      accinfo.innerText = "Anonymous ";
+      accinfo.innerText = "Trump ";
       accinfo.insertBefore(accpfp, accinfo.firstChild);
       acc.appendChild(accinfo);
       //top append end
@@ -173,7 +178,7 @@ async function loadImageLinks(offset = 0, limit = 10) {
 loadImageLinks();
 
 let offset = 0;
-let limit = 10;
+let limit = 5;
 async function loadMoreImages() {
   offset += limit;
   await loadImageLinks(offset, limit);
@@ -198,6 +203,20 @@ async function commenting(refrence) {
     commentModal.classList.remove("hidden");
     overlay.classList.remove("hidden");
     commentInput.value = ""; // Clear the input field
+  });
+  submitCommentButton.addEventListener("click", () => {
+    const commentText = commentInput.value.trim();
+    if (commentText) {
+      const newComment = document.createElement("div");
+      newComment.classList.add(
+        "bg-gray-100",
+        "p-4",
+        "rounded",
+        "shadow",
+        "border"
+      );
+    }
+    closeModal();
   });
 
   // Hide the modal

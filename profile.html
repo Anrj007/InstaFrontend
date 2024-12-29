@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Profile</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./tailwind.config.js"></script>
+    <script src="./fileread.js"></script>
+    <script src="./search.js"></script>
+    <script src="./viewcontroller.js"></script>
+  </head>
+</html>
+<body>
+  <div class="flex flex-row w-screen h-screen bg-black text-white">
+    <div
+      class="justify-center min-w-auto border flex-1 left-0 max-w-60 bg-black h-screen border-gray-800 rounded-2xl"
+      id="leftside"
+    >
+      <div class="ml-5 mt-5 mr-20">
+        <img src="./media/instagram.png" class="w-50 h-20 mt-5" />
+      </div>
+      <div class="flex-col flex gap-5 justify-center ml-5 mt-8 mr-3">
+        <a class="text-white" href="./index.html"
+          ><img src="./media/home.png" class="w-8 h-8 inline-block" /> Home</a
+        >
+        <a class="text-white"
+          ><img
+            src="./media/search.png"
+            class="w-8 h-8 inline-block"
+            id="search"
+            onclick="redirectToInstagram()"
+          />
+          Search</a
+        >
+        <a class="text-white" href="./index.html"
+          ><img src="./media/reels.png" class="w-8 h-8 inline-block" /> Reels</a
+        >
+        <a class="text-white" href="https://www.instagram.com/direct/"
+          ><img src="./media/message.png" class="w-8 h-8 inline-block" />
+          Messages</a
+        >
+        <a class="text-white" href="./index.html"
+          ><img src="./media/notification.png" class="w-8 h-8 inline-block" />
+          Notification</a
+        >
+        <a class="text-white" href="./profile.html"
+          ><img
+            src="./media/pfp.jpg"
+            class="w-8 h-8 inline-block rounded-full"
+          />
+          Profile</a
+        >
+      </div>
+      <div class="flex-col flex gap-5 justify-center ml-5 mb-5 mt-20">
+        <a class="text-white" href="https://www.instagram.com/"
+          ><img src="./media/more.png" class="w-8 h-8 inline-block" />More</a
+        >
+      </div>
+    </div>
+    <div class="flex flex-col gap-5 flex-2" id="profilepfpSide">
+      <div id="upperpart" class="flex flex-row">
+        <img
+          src="./media/pfp.jpg"
+          class="w-25 h-25 mt-10 ml-60 mb-10 rounded-full"
+        />
+        <div id="userdetailsSide" class="mt-10 ml-40">
+          <div id="nametab" class="flex flex-row gap-10">
+            <h1>Trump</h1>
+            <h2 class="text-gray-400">Edit Profile</h2>
+            <h3 class="text-gray-400">View Archive</h3>
+            <a href="https://www.instagram.com/accounts/edit/">
+              <img
+                src="./media/settings.png"
+                class="w-5 h-5 absolute right-5"
+              />
+            </a>
+          </div>
+          <div id="followActions" class="flex flex-row gap-10 mt-5">
+            <h1>0 Posts</h1>
+            <h2>96 Followers</h2>
+            <h3>69 Following</h3>
+          </div>
+          <div id="aboutActions" class="flex flex-col gap-1 mt-2">
+            <h1 class="text-gray-400">Trump1999</h1>
+            <div id="threads" class="flex flex-row gap-1">
+              <img src="./media/threads.png" class="w-10 h-5" />
+              <h1 class="text-gray-400">TrumpSpeaks</h1>
+            </div>
+            <h2>Sigma Boy💸💸💲</h2>
+            <h3>From USA</h3>
+            <h4>Wish me on 14th June 😎🎂</h4>
+          </div>
+        </div>
+        <div class="flex flex-col ml-5 mt-10" id="userdetails"></div>
+      </div>
+      <div id="lowerpart" class="flex justify-center">
+        <img src="./media/camera.png" class="w-20 h-20" />
+      </div>
+      <div class="flex flex-col gap-5 text-center">
+        <h1 class="text-5xl">Share Your Photos</h1>
+        <h2>When you share photos, they will appear on your profile.</h2>
+        <p class="text-blue-500">Upload your first photo</p>
+      </div>
+    </div>
+  </div>
+</body>

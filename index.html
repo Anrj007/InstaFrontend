@@ -6,12 +6,15 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="./tailwind.config.js"></script>
     <script src="./fileread.js"></script>
+    <script src="./follow.js"></script>
+    <script src="./search.js"></script>
+    <script src="./viewcontroller.js"></script>
     <title>Instagram</title>
   </head>
   <body class="bg-black">
     <div class="flex flex-row items-center justify-center h-screen w-screen">
       <div
-        class="justify-center min-w-auto border fixed left-0 h-screen border-gray-800 rounded-2xl"
+        class="justify-center min-w-auto border fixed left-0 h-screen bg-black border-gray-800 rounded-2xl" id="leftside"
       >
         <div class="ml-5 mt-5 mr-20">
           <img src="./media/instagram.png" class="w-50 h-20 mt-5" />
@@ -20,15 +23,15 @@
           <a class="text-white" href="./index.html"
             ><img src="./media/home.png" class="w-8 h-8 inline-block" /> Home</a
           >
-          <a class="text-white" href="./index.html"
-            ><img src="./media/search.png" class="w-8 h-8 inline-block" />
+          <a class="text-white cursor-pointer" onclick="redirectToInstagram()"
+            ><img src="./media/search.png" class="w-8 h-8 inline-block" id="search" />
             Search</a
           >
-          <a class="text-white" href="./index.html"
+          <a class="text-white" href="https://www.instagram.com/reels"
             ><img src="./media/reels.png" class="w-8 h-8 inline-block" />
             Reels</a
           >
-          <a class="text-white" href="./comment.html"
+          <a class="text-white cursor-pointer" id="whatsapp" onclick=justkidding()
             ><img src="./media/message.png" class="w-8 h-8 inline-block" />
             Messages</a
           >
@@ -36,7 +39,7 @@
             ><img src="./media/notification.png" class="w-8 h-8 inline-block" />
             Notification</a
           >
-          <a class="text-white" href="./index.html"
+          <a class="text-white" href="./profile.html"
             ><img
               src="./media/pfp.jpg"
               class="w-8 h-8 inline-block rounded-full"
@@ -45,7 +48,7 @@
           >
         </div>
         <div class="flex-col flex gap-5 justify-center ml-5 mb-5 mt-20">
-          <a class="text-white" href="./index.html"
+          <a class="text-white" href="https://www.instagram.com/"
             ><img src="./media/more.png" class="w-8 h-8 inline-block" />More</a
           >
         </div>
@@ -54,46 +57,27 @@
         class="mt-5 ml-10 mr-10 flex-grow flex flex-col gap-30 max-w-2xl h-screen text-white"
       >
         <div class="flex flex-row gap-10">
-          <img src="./media/status2.png" class="w-20 h-20 rounded-full" />
-          <img src="./media/status2.png" class="w-20 h-20 rounded-full" />
-          <img src="./media/status2.png" class="w-20 h-20 rounded-full" />
-          <img src="./media/status2.png" class="w-20 h-20 rounded-full" />
-          <img src="./media/status2.png" class="w-20 h-20 rounded-full" />
-          <img src="./media/status2.png" class="w-20 h-20 rounded-full" />
+          <img src="./media/status2.png" class="w-20 h-20 rounded-full " id="s1" />
+          <img src="./media/status2.png" class="w-20 h-20 rounded-full" id="s2" />
+          <img src="./media/status2.png" class="w-20 h-20 rounded-full" id="s3"/>
+          <img src="./media/status2.png" class="w-20 h-20 rounded-full" id="s4"/>
+          <img src="./media/status2.png" class="w-20 h-20 rounded-full" id="s5"/>
+          <img src="./media/status2.png" class="w-20 h-20 rounded-full" id="s6"/>
         </div>
         <div class="posts-of-user" id="posts-of-user">
-          <div class="ml-5 mt-20 mr-5 max-w-2xl max-h-3xl">
-            <h1 class="text-lg inline-block">
-              <img
-                src="./media/pfp.jpg"
-                class="w-7 h-7 mr-10 inline-block rounded-full mb-5"
-              />Anonymous
-            </h1>
-            <img src="./media/module.jpeg" />
-            <div id="interaction" class="mt-3 flex flex-row gap-2">
-              <img src="./media/like.png" class="w-10 h-8 inline-block" />
-              <img src="./media/message.png" class="w-8 h-8 inline-block" />
-              <img src="./media/send.png" class="w-10 h-8 inline-block" />
-            </div>
-            <h1 class="text-gray-200">
-              Images are fetched from Reddit server and are not stored on
-              device.
-            </h1>
-            <h2 class="text-gray-400">Add a comment..</h2>
-          </div>
         </div>
       </div>
       <div
-        class="flex flex-col text-white bg-black absolute right-0 h-screen border border-gray-800 rounded-2xl"
-      >
+        class="flex flex-col text-white bg-black absolute right-0 h-screen border border-black rounded-2xl"
+      id="rightside">
         <div class="ml-5 mt-5 mr-5">
           <h1 class="text-lg inline-block" href="./index.html">
             <img
               src="./media/pfp.jpg"
               class="w-7 h-7 mr-10 inline-block rounded-full"
-            />Anonymous
+            />Trump
           </h1>
-          <a class="text-sm text-blue-500 ml-2 inline-block" href="./index.html"
+          <a class="text-sm text-blue-500 ml-2 inline-block" href="./profile.html"
             >Switch</a
           >
         </div>
@@ -106,8 +90,7 @@
               />NPC 4
             </h1>
             <a
-              class="text-sm text-gray-400 ml-2 inline-block"
-              href="./index.html"
+              class="text-sm text-gray-400 ml-2 inline-block cursor-pointer" id="friendname4" onclick=changeHeadingText4()
               >Follow</a
             >
           </div>
@@ -119,8 +102,7 @@
               />NPC 3
             </h1>
             <a
-              class="text-sm text-gray-400 ml-2 inline-block"
-              href="./index.html"
+              class="text-sm text-gray-400 ml-2 inline-block cursor-pointer" id="friendname3" onclick=changeHeadingText3()
               >Follow</a
             >
           </div>
@@ -132,36 +114,34 @@
               />NPC 2
             </h1>
             <a
-              class="text-sm text-gray-400 ml-2 inline-block"
-              href="./index.html"
+              class="text-sm text-gray-400 ml-2 inline-block cursor-pointer" id="friendname2" onclick=changeHeadingText2()
               >Follow</a
             >
           </div>
           <div>
-            <h1 class="text-lg inline-block">
+            <h1 class="text-lg inline-block" >
               <img
                 src="./media/pfp2.png"
                 class="w-7 h-7 mr-10 inline-block rounded-full"
               />NPC 1
             </h1>
             <a
-              class="text-sm text-gray-400 ml-2 inline-block"
-              href="./index.html"
+              class="text-sm text-gray-400 ml-2 inline-block cursor-pointer" id="friendname1" onclick=changeHeadingText1()
               >Follow</a
             >
           </div>
         </div>
         <div class="ml-5 mt-10 mr-5 text-gray-700">
-          <a href="./index.html">about</a>
-          <a href="./index.html">Help</a>
-          <a href="./index.html">Press</a>
-          <a href="./index.html">API</a>
-          <a href="./index.html">Jobs</a><br />
-          <a href="./index.html">Privacy</a>
-          <a href="./index.html">Terms</a>
-          <a href="./index.html">Locations</a><br />
-          <a href="./index.html">Language</a>
-          <a href="./index.html">Meta Verified</a>
+          <a href="https://www.meta.com/">about</a>
+          <a href="https://www.meta.com/">Help</a>
+          <a href="https://www.meta.com/">Press</a>
+          <a href="https://www.meta.com/">API</a>
+          <a href="https://www.meta.com/">Jobs</a><br />
+          <a href="https://www.meta.com/">Privacy</a>
+          <a href="https://www.meta.com/">Terms</a>
+          <a href="https://www.meta.com/">Locations</a><br />
+          <a href="https://www.meta.com/">Language</a>
+          <a href="https://www.meta.com/">Meta Verified</a>
         </div>
         <div class="ml-5 mt-10 mr-5 text-gray-700">
           <p>© 2024 Instagram from Meta</p>
