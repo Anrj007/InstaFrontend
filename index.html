@@ -17,39 +17,40 @@
         class="justify-center min-w-auto border fixed left-0 h-screen bg-black border-gray-800 rounded-2xl" id="leftside"
       >
         <div class="ml-5 mt-5 mr-20">
-          <img src="./media/instagram.png" class="w-50 h-20 mt-5" />
+          <img src="./media/instagram.png" class="w-50 h-20 mt-5" alt="Instagram Logo" />
         </div>
         <div class="flex-col flex gap-5 justify-center ml-5 mt-8 mr-3">
           <a class="text-white" href="./index.html"
-            ><img src="./media/home.png" class="w-8 h-8 inline-block" /> Home</a
+            ><img src="./media/home.png" class="w-8 h-8 inline-block" alt="Home Icon" /> Home</a
           >
           <a class="text-white cursor-pointer" onclick="redirectToInstagram()"
-            ><img src="./media/search.png" class="w-8 h-8 inline-block" id="search" />
+            ><img src="./media/search.png" class="w-8 h-8 inline-block" id="search" alt="Search Icon" />
             Search</a
           >
           <a class="text-white" href="https://www.instagram.com/reels"
-            ><img src="./media/reels.png" class="w-8 h-8 inline-block" />
+            ><img src="./media/reels.png" class="w-8 h-8 inline-block" alt="Reels Icon" />
             Reels</a
           >
           <a class="text-white cursor-pointer" id="whatsapp" onclick=justkidding()
-            ><img src="./media/message.png" class="w-8 h-8 inline-block" />
+            ><img src="./media/message.png" class="w-8 h-8 inline-block" alt="Messages Icon" />
             Messages</a
           >
           <a class="text-white" href="./index.html"
-            ><img src="./media/notification.png" class="w-8 h-8 inline-block" />
+            ><img src="./media/notification.png" class="w-8 h-8 inline-block" alt="Notification Icon" />
             Notification</a
           >
           <a class="text-white" href="./profile.html"
             ><img
               src="./media/pfp.jpg"
               class="w-8 h-8 inline-block rounded-full"
+              alt="Profile Picture"
             />
             Profile</a
           >
         </div>
         <div class="flex-col flex gap-5 justify-center ml-5 mb-5 mt-20">
           <a class="text-white" href="https://www.instagram.com/"
-            ><img src="./media/more.png" class="w-8 h-8 inline-block" />More</a
+            ><img src="./media/more.png" class="w-8 h-8 inline-block" alt="More Options" />More</a
           >
         </div>
       </div>
@@ -57,12 +58,12 @@
         class="mt-5 ml-10 mr-10 flex-grow flex flex-col gap-30 max-w-2xl h-screen text-white"
       >
         <div class="flex flex-row gap-10">
-          <img src="./media/status2.png" class="w-20 h-20 rounded-full " id="s1" />
-          <img src="./media/status2.png" class="w-20 h-20 rounded-full" id="s2" />
-          <img src="./media/status2.png" class="w-20 h-20 rounded-full" id="s3"/>
-          <img src="./media/status2.png" class="w-20 h-20 rounded-full" id="s4"/>
-          <img src="./media/status2.png" class="w-20 h-20 rounded-full" id="s5"/>
-          <img src="./media/status2.png" class="w-20 h-20 rounded-full" id="s6"/>
+          <img src="./media/status2.png" class="w-20 h-20 rounded-full" id="s1" alt="Status 1" />
+          <img src="./media/status2.png" class="w-20 h-20 rounded-full" id="s2" alt="Status 2" />
+          <img src="./media/status2.png" class="w-20 h-20 rounded-full" id="s3" alt="Status 3" />
+          <img src="./media/status2.png" class="w-20 h-20 rounded-full" id="s4" alt="Status 4" />
+          <img src="./media/status2.png" class="w-20 h-20 rounded-full" id="s5" alt="Status 5" />
+          <img src="./media/status2.png" class="w-20 h-20 rounded-full" id="s6" alt="Status 6" />
         </div>
         <div class="posts-of-user" id="posts-of-user">
         </div>
@@ -75,6 +76,7 @@
             <img
               src="./media/pfp.jpg"
               class="w-7 h-7 mr-10 inline-block rounded-full"
+              alt="Trump Profile Picture"
             />Trump
           </h1>
           <a class="text-sm text-blue-500 ml-2 inline-block" href="./profile.html"
@@ -87,6 +89,7 @@
               <img
                 src="./media/pfp2.png"
                 class="w-7 h-7 mr-10 inline-block rounded-full"
+                alt="NPC 4 Profile Picture"
               />NPC 4
             </h1>
             <a
@@ -99,6 +102,7 @@
               <img
                 src="./media/pfp2.png"
                 class="w-7 h-7 mr-10 inline-block rounded-full"
+                alt="NPC 3 Profile Picture"
               />NPC 3
             </h1>
             <a
@@ -111,6 +115,7 @@
               <img
                 src="./media/pfp2.png"
                 class="w-7 h-7 mr-10 inline-block rounded-full"
+                alt="NPC 2 Profile Picture"
               />NPC 2
             </h1>
             <a
@@ -123,6 +128,7 @@
               <img
                 src="./media/pfp2.png"
                 class="w-7 h-7 mr-10 inline-block rounded-full"
+                alt="NPC 1 Profile Picture"
               />NPC 1
             </h1>
             <a
@@ -155,6 +161,7 @@
     <div
       id="commentModal"
       class="fixed bg-white p-6 rounded-lg shadow-lg z-10 hidden"
+      data-post-id=""
     >
       <h3 class="text-lg font-semibold mb-4">Add a Comment</h3>
       <textarea
